@@ -1,0 +1,182 @@
+/*it("Handles the survey name popup", async function () {
+                                  const RandomTitle = require('../pages/RandomTitle'); 
+                            
+                                  try {
+                                    // Wait for the pop-up to appear
+                                    await driver.wait(until.elementLocated(By.id("swal2-title")), 10000);
+                            
+                                    // Find and verify the pop-up title element
+                                    let popupTitle = await driver.findElement(By.id("swal2-title"));
+                                    let isDisplayed = await popupTitle.isDisplayed();
+                                    let titleText = await popupTitle.getText();
+                            
+                                    assert.strictEqual(isDisplayed, true, "Pop-up title should be displayed.");
+                                    assert.strictEqual(titleText, "Please add Survey Name", "Pop-up title text should be 'Please add Survey Name'.");
+                            
+                                    console.log("Pop-up title is displayed with the correct text.");
+                                    await driver.sleep(4000);
+                            
+                                    console.log("Clicking Pop up Ok button...");
+                                    let popOkButton = await driver.wait(until.elementLocated(By.xpath("(//div[@class='swal2-actions'])[1]")), 20000);
+                                    //let popOkButton = await driver.wait(until.elementLocated(By.xpath("//button[normalize-space()='Ok']")), 20000);
+            
+                                    await driver.wait(until.elementIsVisible(popOkButton), 20000);
+                                    await popOkButton.click();
+                                    await driver.sleep(2000);
+                            
+                                    // Add survey name using the function from RandomTitle module
+                                    console.log("Adding survey name");
+                                    let inputSurvey = await driver.findElement(By.xpath("//*[@id='cdk-step-content-0-0']/vantage-circle-dashboard-build-survey/div/vantage-circle-dashboard-custom-survey/div[1]/div/div[1]/div[2]/div/vc-input-field/div/div"), 20000);
+                                    //await inputSurvey.clear();
+                                    let randomSurveyName = RandomTitle.generateRandomSurveyName(); // Using the imported function to generate a name
+                                    await inputSurvey.sendKeys(randomSurveyName);
+                                    console.log(`Survey name added: ${randomSurveyName}`);
+                                    await driver.sleep(3000);
+                            
+                                    console.log("Survey name added.");
+                                    await driver.sleep(2000);
+                            
+                                    console.log("Proceeding - clicking Next 2nd time...");
+                                    let SurNext2 = await driver.wait(until.elementLocated(By.xpath("(//div[@class='d-btn-colored btn w-[131px] text-center cursor-pointer'])[1]")), 20000);
+                                    await driver.wait(until.elementIsVisible(SurNext2), 20000);
+                                    await SurNext2.click();
+                                    await driver.sleep(2000);
+                            
+                                    console.log("Proceeding - Survey Scheduling...");
+                                  } catch (error) {
+                                    await captureScreenshot("Added survey name and questions");
+                                    throw error;
+                                  }
+                                });*/
+              
+/*it("Handles the survey name popup", async function () {
+          const RandomTitle = require('./RandomTitle'); 
+                
+          try {// Wait for the pop-up to appear
+                        await driver.wait(until.elementLocated(By.id("swal2-title")), 10000);
+                
+                        // Find and verify the pop-up title element
+                        let popupTitle = await driver.findElement(By.id("swal2-title"));
+                        let isDisplayed = await popupTitle.isDisplayed();
+                        let titleText = await popupTitle.getText();
+                
+                        assert.strictEqual(isDisplayed, true, "Pop-up title should be displayed.");
+                        assert.strictEqual(titleText, "Please add Survey Name", "Pop-up title text should be 'Please add Survey Name'.");
+                
+                        console.log("Pop-up title is displayed with the correct text.");
+                        await driver.sleep(4000);
+                
+                        console.log("Clicking Pop up Ok button...");
+                        let popOkButton = await driver.wait(until.elementLocated(By.xpath("(//div[@class='swal2-actions'])[1]")), 20000);
+                        //let popOkButton = await driver.wait(until.elementLocated(By.xpath("//button[normalize-space()='Ok']")), 20000);
+
+                        await driver.wait(until.elementIsVisible(popOkButton), 20000);
+                        await popOkButton.click();
+                        await driver.sleep(2000);
+
+                        const windowHandles = await driver.getAllWindowHandles();
+                        await driver.switchTo().window(windowHandles[1]);
+
+                        let inputSurvey = await driver.wait(until.elementLocated(By.xpath("//*[@id='inputfield-4u601c']")), 60000); // Increased timeout to 60 seconds
+                        await driver.wait(until.elementIsVisible(inputSurvey), 20000);
+                        await inputSurvey.click();
+                
+                        // Add survey name using the function from RandomTitle module
+                        
+                      } catch (error) {
+                        //await captureScreenshot("Added survey name and questions");
+                        throw error;
+                      }
+                    });*/
+
+      /*it("Adding survey name", async function () {
+                      try {
+                        console.log("Adding survey name");
+                    
+                        // Wait for the input field to be located and visible
+                        
+                        let inputSurvey = await driver.wait(until.elementLocated(By.xpath("//*[@id='inputfield-4u601c']")), 60000); // Increased timeout to 60 seconds
+                        await driver.wait(until.elementIsVisible(inputSurvey), 20000);
+                        await inputSurvey.click();
+
+                       // await inputSurvey.sendKeys("NeWTest101");
+                       let randomSurveyName = RandomTitle.generateRandomSurveyName();
+                       await inputSurvey.sendKeys(randomSurveyName);
+                       console.log(`Survey name added: ${randomSurveyName}`);
+                       await driver.sleep(3000);
+
+                       console.log("Proceeding - clicking Next 2nd time...");
+                       let SurNext2 = await driver.wait(until.elementLocated( By.xpath("(//div[@class='d-btn-colored btn w-[131px] text-center cursor-pointer'])[1]")),20000);
+                       await driver.wait(until.elementIsVisible(SurNext2), 20000);
+                       await SurNext2.click();
+                       await driver.sleep(2000);
+
+                       console.log("Proceeding - Survey Scheduling...");
+
+                    
+                      } catch (error) {
+                        console.error("Error when adding survey name:", error);
+                        // Optionally take a screenshot for debugging
+                        // await driver.takeScreenshot().then(function(image) {
+                        //     require('fs').writeFileSync('add-survey-name-failure.png', image, 'base64');
+                        // });
+                        throw error;
+                      }
+                    });
+
+
+                    // At the top of your test file
+                 this.timeout(60000); // 60 seconds for all tests in this file
+
+// OR for a single test
+      it("Adding random survey name", async function () {
+           this.timeout(60000); // Increase timeout for this test
+             try {
+                console.log("Random title generating");
+                  let inputSurvey = await driver.wait( until.elementLocated(By.xpath("(//div[@class='flex flex-col'])[1]")),60000);
+                  await driver.wait(until.elementIsVisible(inputSurvey), 20000);
+
+                  let randomSurveyName = RandomTitle.generateRandomSurveyName();
+                  await inputSurvey.sendKeys(randomSurveyName);
+                  console.log(`Survey name added: ${randomSurveyName}`);
+                  await driver.sleep(3000);
+
+                  console.log("Proceeding - clicking Next 2nd time...");
+                  let SurNext2 = await driver.wait(until.elementLocated( By.xpath("(//div[@class='d-btn-colored btn w-[131px] text-center cursor-pointer'])[1]")),20000);
+                  await driver.wait(until.elementIsVisible(SurNext2), 20000);
+                  await SurNext2.click();
+                  await driver.sleep(2000);
+
+                  console.log("Proceeding - Survey Scheduling...");
+                  } catch (error) {
+                  console.error("Error when adding survey name:", error);
+                  throw error;
+                  }
+                 });*/
+
+
+
+
+                 slct elements: 
+
+                 let Survey2 = await driver.wait(
+                      until.elementLocated(By.xpath("(//label[@for='Engagement'])[1]")),
+                      20000
+                    ); // Increased timeout
+                    await driver.wait(until.elementIsVisible(Survey2), 20000);
+                    await Survey2.click();
+              
+                    await driver.sleep(1000);
+                    console.log("Proceeding - clicking Next...");
+                    let SurNext = await driver.wait(
+                      until.elementLocated(
+                        By.xpath(
+                          "(//div[@class='d-btn-colored btn w-[131px] text-center cursor-pointer'])[1]"
+                        )
+                      ),
+                      20000
+                    ); // Increased timeout
+                    await driver.wait(until.elementIsVisible(SurNext), 20000);
+                    await SurNext.click();
+              
+                    await driver.sleep(4000); // wait 

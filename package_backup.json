@@ -1,0 +1,19 @@
+{
+  "name": "pulsetest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Test_D1.js",
+  "scripts": {
+    "test": "mocha pages/overview.js --reporter mochawesome"
+  
+
+  },
+      
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+    }
+ /*"test": "mocha Pulse_Testing/*.js --reporter mochawesome"*/
+/*"test": "mocha Pulse_Testing/Attempt_Survey.js --reporter mochawesome --reporter-options reportDir=reports,reportFilename=report,json=true"*/
+//    "test": "mocha pages/*.js --reporter mochawesome"
