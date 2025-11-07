@@ -194,7 +194,7 @@ test("Schedule survey – date and time", async () => {
   await expect.soft(res2.status).toBe('success');
   await expect.soft(timeWithoutSeconds).toBe(Time);
     console.log(`Time selected is displayed correctly in preview:`,Time==timeWithoutSeconds)
- //   await expect.soft(res3.status).toBe('success');
+    await expect.soft(res3.status).toBe('success');
   await adminDashboardTab.waitForTimeout(500)
   let res4=await adminDashboardPage.launchSurvey();
   expect(res4.status,'Should click and launch survey').toBe('success');
